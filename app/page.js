@@ -1,4 +1,5 @@
 import Countdown from "@/components/Countdown";
+import EnvelopeIntro from "@/components/EnvelopeIntro";
 import FebruaryCalendar from "@/components/FebruaryCalendar";
 import InvitationQr from "@/components/InvitationQr";
 import RsvpCodeEntry from "@/components/RsvpCodeEntry";
@@ -8,6 +9,7 @@ const receptionMap = "https://www.google.com.mx/maps/place/La+Yeguada+A+y+E/@20.
 
 export default function Home() {
   return <main>
+    <EnvelopeIntro />
     <InvitationQr />
     <section className="hero" aria-labelledby="couple">
       <p className="eyebrow">Nos casamos</p>
