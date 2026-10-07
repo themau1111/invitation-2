@@ -13,7 +13,7 @@ export default function Home() {
       <div className="monogram" style={{ gap: ".03em" }} aria-hidden="true"><span style={{ transform: "none" }}>D</span><b style={{ color: "var(--forest)", fontSize: ".32em", fontStyle: "normal", margin: "0 .05em" }}>♥</b><span style={{ transform: "none" }}>H</span></div>
       <h1 id="couple">Diana <em>&amp;</em> Héctor</h1>
       <p className="date-line">Domingo · 07 de febrero de 2027</p>
-      <a className="scroll-link" href="#celebracion">Acompáñanos <span aria-hidden="true">↓</span></a>
+      <a className="scroll-link" href="#celebracion">Descubre nuestro día <span aria-hidden="true">↓</span></a>
     </section>
 
     <section className="quote-section">
@@ -28,16 +28,16 @@ export default function Home() {
     <section id="celebracion" className="details" aria-labelledby="details-title">
       <p className="eyebrow">Celebremos juntos</p><h2 id="details-title">Nuestro día</h2>
       <div className="event-list">
-        <article><span className="event-icon" aria-hidden="true">✧</span><p className="event-label">Ceremonia religiosa</p><h3>Santuario Nuestra Señora<br />de la Soledad</h3><p>Te esperamos a las <strong>5:40 pm</strong><br />Misa a las <strong>6:00 pm</strong></p><a href={templeMap} target="_blank" rel="noreferrer">Ver ubicación <span aria-hidden="true">↗</span></a></article>
-        <article><span className="event-icon" aria-hidden="true">✧</span><p className="event-label">Recepción</p><h3>La Yeguada A y E</h3><p>Nos vemos a las <strong>8:00 pm</strong></p><a href={receptionMap} target="_blank" rel="noreferrer">Ver ubicación <span aria-hidden="true">↗</span></a></article>
+        <article className="venue-card"><div className="venue-image"><img src="/images/santuario-illustration.png" alt="Ilustración editorial de un santuario" /></div><div className="venue-copy"><span className="event-icon" aria-hidden="true">✧</span><p className="event-label">Ceremonia religiosa</p><h3>Santuario Nuestra Señora<br />de la Soledad</h3><p>Te esperamos a las <strong>5:40 pm</strong><br />Misa a las <strong>6:00 pm</strong></p><a href={templeMap} target="_blank" rel="noreferrer">Abrir ubicación <span aria-hidden="true">↗</span></a></div></article>
+        <article className="venue-card"><div className="venue-image"><img src="/images/yeguada-illustration.png" alt="Ilustración editorial de una hacienda ecuestre" /></div><div className="venue-copy"><span className="event-icon" aria-hidden="true">✧</span><p className="event-label">Recepción</p><h3>La Yeguada A y E</h3><p>Nos vemos a las <strong>8:00 pm</strong></p><a href={receptionMap} target="_blank" rel="noreferrer">Abrir ubicación <span aria-hidden="true">↗</span></a></div></article>
       </div>
     </section>
 
     <section className="attire"><p className="eyebrow">Código de vestimenta</p><h2>Semiformal</h2><p>Agradecemos evitar el blanco y los tonos verde olivo.</p><div className="swatches" aria-label="Tonos a evitar"><i /><i /><i /><i /><i /></div></section>
 
-    <section className="gifts"><p className="eyebrow">Mesa de regalos</p><h2>Tu presencia es nuestro mejor regalo</h2><p>Si deseas tener un detalle con nosotros, hemos preparado estas opciones.</p><div><a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60007672" target="_blank" rel="noreferrer">Liverpool <span aria-hidden="true">↗</span></a><a href="https://www.amazon.com.mx/wedding/guest-view/2HMJ9WW6M938H" target="_blank" rel="noreferrer">Amazon <span aria-hidden="true">↗</span></a></div></section>
+    <section className="gifts"><p className="eyebrow">Mesa de regalos</p><h2>Tu presencia es el<br /><em>mejor regalo</em></h2><p>Pero si deseas acompañarnos con un detalle, selecciona la opción que prefieras.</p><div className="gift-options"><a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60007672" target="_blank" rel="noreferrer"><small>Opción 01</small><strong>Liverpool</strong><span>Ver mesa de regalos ↗</span></a><a href="https://www.amazon.com.mx/wedding/guest-view/2HMJ9WW6M938H" target="_blank" rel="noreferrer"><small>Opción 02</small><strong>Amazon</strong><span>Ver mesa de regalos ↗</span></a></div></section>
 
-    <section className="rsvp"><p className="eyebrow">Confirma tu asistencia</p><h2>Nos encantará compartir este día contigo</h2><p>Tu enlace personal de invitación incluye la confirmación para las personas asignadas a tu celebración.</p><a className="button" href="#rsvp-info">Abrir mi invitación</a><p id="rsvp-info" className="fine-print">Recibirás o ya recibiste tu enlace personal por separado.</p></section>
+    <section className="rsvp"><p className="eyebrow">Confirma tu asistencia</p><h2>Nos encantará<br /><em>celebrar contigo</em></h2><p>Utiliza el acceso personal que recibiste para confirmar tu asistencia y la de tus acompañantes.</p><a className="button" href="#rsvp-info">Confirmar mi asistencia <span>→</span></a><p id="rsvp-info" className="fine-print">Tu acceso personal protege los detalles de tu invitación.</p></section>
     <footer>Diana &amp; Héctor <span>♥</span> 07 · 02 · 2027</footer>
   </main>;
 }
