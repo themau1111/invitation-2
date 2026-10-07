@@ -4,7 +4,7 @@
 
 ## Runtime dependencies
 
-- **Frontend:** this repository and its own Vercel project, `invitation-2`.
+- **Frontend:** this repository and its own Vercel project, `diana-y-hector`. Its public named alias is `https://diana-y-hector-themau1111s-projects.vercel.app`.
 - **API:** the separately deployed `invitation-2-api` project. Its stable HTTP contract is summarized in `docs/api-contract.md`.
 - **Data:** the dedicated Supabase project `jpykyhjaygxrjnurqzsv`; browser code has no direct guest-table access.
 

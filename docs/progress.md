@@ -16,3 +16,15 @@
 ## 2026-10-06
 
 - Confirmed the original and new invitations are separate deployable products. The original repositories retain their own Supabase/Vercel contracts; the new invitation owns its API, Supabase project, configuration, and Vercel projects. Cross-repository references are documentation-only.
+
+## 2026-10-07
+
+- Captured the initial couple brief for Diana & Héctor. The wedding is Sunday, 07 February 2027. Ceremony: Santuario Nuestra Señora de la Soledad, 6:00 pm; guests should arrive by 5:40 pm. Reception: La Yeguada A y E, 8:00 pm. The official map links and the Liverpool/Amazon gift registries are sourced from the couple's shared Drive document.
+- Visual direction: editorial and romantic, with olive greens, cream, and warm brown; a D♥H monogram; refined serif and script accents; a countdown and February 2027 calendar. Dress is semiformal; guests should avoid white and the supplied olive palette. An envelope-opening animation is reference-only until motion scope is approved. Spotify playback/download is explicitly deferred.
+- RSVP decision confirmed: retain the existing token-scoped confirmation flow; do not ask dietary questions; companions are those assigned to each invitation and the implementation must make that flow intuitive. The supplied love phrase is approved as final invitation copy.
+- The initial experience will be photo-free and deliberately distinct from the original invitation while retaining an elegant, high-care visual finish. A QR code is required for desktop visitors; it will be generated only after the stable Vercel production URL is set, and will open the same invitation on mobile.
+- Repository documentation and `progress.md` are present. No repository-level pre-compact hook configuration was found; no hook format was added without an approved runtime convention.
+- Implemented the initial Next.js 16.4 frontend: photo-free editorial landing page, D♥H monogram, countdown, February 2027 calendar, ceremony/reception map links, dress guidance, gift registries, accessible reduced-motion behavior, desktop QR, and token-scoped `/rsvp/[accessToken]` UI. It uses only `NEXT_PUBLIC_API_BASE_URL` and `NEXT_PUBLIC_SITE_URL`; no database credential is in browser code.
+- The Vercel frontend project was renamed to `diana-y-hector` and deployed. The stable named URL is `https://diana-y-hector-themau1111s-projects.vercel.app`; Vercel retains a separate legacy alias. The QR is built from the named URL, not an ephemeral preview.
+- Production dependency audit is clean (zero vulnerabilities) after moving to Next.js 16.4.0. Local production build and mobile/desktop visual checks passed.
+- Deployment readiness remains blocked by Vercel Authentication: on 2026-10-07 the named production URL returned a Vercel SSO redirect. Both `diana-y-hector` and `invitation-2-api` show `Standard Protection` in the team-level Deployment Protection view. The current plan exposes no project-only public-access control, so no team-wide protection was changed and no secret-bearing share link was treated as the canonical guest URL. Resolve public hosting/protection before distributing the QR or invitation links.
