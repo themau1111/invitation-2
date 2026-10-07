@@ -13,7 +13,10 @@ export default function Home() {
       <p className="eyebrow">Nos casamos</p>
       <div className="monogram" style={{ gap: ".03em" }} aria-hidden="true"><span style={{ transform: "none" }}>D</span><b style={{ color: "var(--forest)", fontSize: ".32em", fontStyle: "normal", margin: "0 .05em" }}>♥</b><span style={{ transform: "none" }}>H</span></div>
       <h1 id="couple">Diana <em>&amp;</em> Héctor</h1>
-      <p className="date-line">Domingo · 07 de febrero de 2027</p>
+      <div className="hero-date" aria-label="Domingo 07 de febrero de 2027">
+        <p>Febrero</p>
+        <div><span>Domingo</span><strong>07</strong><span>2027</span></div>
+      </div>
       <a className="scroll-link" href="#celebracion">Descubre nuestro día <span aria-hidden="true">↓</span></a>
     </section>
 

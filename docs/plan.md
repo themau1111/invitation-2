@@ -9,6 +9,6 @@
 7. After the stable Vercel production URL is configured, generate a QR code that resolves to that URL and present it only as a desktop convenience for opening the same invitation on a phone. Do not bind a QR code to a preview deployment.
 8. Verify mobile, desktop, accessibility, security, and deployment readiness.
 
-Current blocker: Vercel Authentication protects both invitation projects. Confirm a public hosting/protection option before distribution; do not substitute a temporary shareable link for the canonical guest URL.
+The canonical public URL is `https://diana-y-hector.vercel.app`. Direct deployment URLs and previews remain protected; distribute only the canonical URL and ensure the QR continues to resolve to it.
 
 Advance only when the previous stage has a recorded outcome in `progress.md`.

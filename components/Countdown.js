@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const weddingDate = new Date("2027-02-07T18:00:00-06:00");
 
@@ -22,6 +22,9 @@ export default function Countdown() {
   }, []);
 
   return <div className="countdown" aria-label="Cuenta regresiva para la boda">
-    {Object.entries(time).map(([label, value]) => <div key={label}><strong>{String(value).padStart(2, "0")}</strong><span>{label}</span></div>)}
+    {Object.entries(time).map(([label, value], index) => <Fragment key={label}>
+      {index > 0 && <i className="countdown-separator" aria-hidden="true">:</i>}
+      <div><strong>{String(value).padStart(2, "0")}</strong><span>{label}</span></div>
+    </Fragment>)}
   </div>;
 }
