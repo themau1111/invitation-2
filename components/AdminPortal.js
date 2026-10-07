@@ -62,7 +62,7 @@ export default function AdminPortal() {
   async function sendLoginLink(event) {
     event.preventDefault();
     if (!supabase) return setNotice("El acceso de administración aún no está configurado.");
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: `${window.location.origin}/admin` } });
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { shouldCreateUser: false, emailRedirectTo: `${window.location.origin}/admin` } });
     setNotice(error ? "No pudimos enviar el enlace de acceso." : "Revisa tu correo para continuar con seguridad.");
   }
 
