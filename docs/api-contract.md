@@ -5,12 +5,26 @@ This is the shared contract between `invitation-2` and `invitation-2-api`. All r
 ## Base rules
 
 - JSON requests and responses use UTF-8. The API rejects bodies over 16 KB.
-- Public routes accept only an opaque invitation token in the URL. They return only the invitation addressed by that token.
+- Public RSVP routes accept an opaque invitation token in the URL. The code-entry route accepts a four-digit code and returns only that invitation's opaque token; it never returns names, party size, or any other guest data.
 - Administrative routes require a Supabase access token in `Authorization: Bearer <token>`. The API verifies it and checks that the user has a row in `admin_profiles`.
 - Responses must not reveal whether another invitation, email address, or administrator exists.
 - The API permits the production frontend origin only, configured with `APP_ORIGIN`; local development origin is configured separately.
 
 ## Public RSVP
+
+### `POST /v1/rsvp/access`
+
+Validates a four-digit personal code and resolves it to the existing opaque RSVP token.
+
+```json
+{ "code": "0042" }
+```
+
+```json
+{ "accessToken": "uuid" }
+```
+
+The database stores only a keyed hash of the code, and hashes are unique among invitations. Invalid codes do not reveal any guest information. Requests receive a general per-origin/IP rate limit to deter automated guessing; there is no attempt counter or lockout attached to a guest or code.
 
 ### `GET /v1/rsvp/{accessToken}`
 
@@ -67,7 +81,7 @@ Authenticated administrator only. Streams a CSV/XLSX export with no access token
 
 ### `POST /v1/admin/guests`
 
-Authenticated administrator only. Creates an invitation and server-generated opaque access token. Delivery of an access link is a separate, explicitly approved mail operation.
+Authenticated administrator only. Creates an invitation, a server-generated opaque access token, and a unique four-digit RSVP code. The response returns the new code once to the authenticated administrator; its hash is retained server-side. Delivery of an access link or code is a separate, explicitly approved mail operation.
 
 ### `PATCH /v1/admin/guests/{id}` and `DELETE /v1/admin/guests/{id}`
 
