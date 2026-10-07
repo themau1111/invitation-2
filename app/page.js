@@ -1,6 +1,7 @@
 import Countdown from "@/components/Countdown";
 import FebruaryCalendar from "@/components/FebruaryCalendar";
 import InvitationQr from "@/components/InvitationQr";
+import RsvpCodeEntry from "@/components/RsvpCodeEntry";
 
 const templeMap = "https://www.google.com.mx/maps/place/Santuario+Nuestra+Se%C3%B1ora+de+la+Soledad/@20.6396927,-103.3309581,15z/data=!3m1!4b1!4m6!3m5!1s0x8428b3b4b7864039:0x720a85b7458cf61c!8m2!3d20.6396937!4d-103.312504!16s%2Fg%2F1thcn2gj";
 const receptionMap = "https://www.google.com.mx/maps/place/La+Yeguada+A+y+E/@20.6341582,-103.2075609,17z/data=!3m1!4b1!4m6!3m5!1s0x8428b5003b7957b9:0x73fb5e945d9f62d8!8m2!3d20.6341582!4d-103.204986!16s%2Fg%2F11wthrt9xg";
@@ -35,9 +36,9 @@ export default function Home() {
 
     <section className="attire"><p className="eyebrow">Código de vestimenta</p><h2>Semiformal</h2><p>Agradecemos evitar el blanco y los tonos verde olivo.</p><div className="swatches" aria-label="Tonos a evitar"><i /><i /><i /><i /><i /></div></section>
 
-    <section className="gifts"><p className="eyebrow">Mesa de regalos</p><h2>Tu presencia es el<br /><em>mejor regalo</em></h2><p>Pero si deseas acompañarnos con un detalle, selecciona la opción que prefieras.</p><div className="gift-options"><a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60007672" target="_blank" rel="noreferrer"><small>Opción 01</small><strong>Liverpool</strong><span>Ver mesa de regalos ↗</span></a><a href="https://www.amazon.com.mx/wedding/guest-view/2HMJ9WW6M938H" target="_blank" rel="noreferrer"><small>Opción 02</small><strong>Amazon</strong><span>Ver mesa de regalos ↗</span></a></div></section>
+    <section className="gifts"><p className="eyebrow">Mesa de regalos</p><h2>Tu presencia es el<br /><em>mejor regalo</em></h2><p>Pero si deseas acompañarnos con un detalle, selecciona la opción que prefieras.</p><div className="gift-options"><a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60007672" target="_blank" rel="noreferrer"><img src="/images/liverpool.png" alt="Liverpool" /><small>Opción 01</small><span>Ver mesa de regalos ↗</span></a><a href="https://www.amazon.com.mx/wedding/guest-view/2HMJ9WW6M938H" target="_blank" rel="noreferrer"><img src="/images/amazon.png" alt="Amazon" /><small>Opción 02</small><span>Ver mesa de regalos ↗</span></a></div></section>
 
-    <section className="rsvp"><p className="eyebrow">Confirma tu asistencia</p><h2>Nos encantará<br /><em>celebrar contigo</em></h2><p>Utiliza el acceso personal que recibiste para confirmar tu asistencia y la de tus acompañantes.</p><a className="button" href="#rsvp-info">Confirmar mi asistencia <span>→</span></a><p id="rsvp-info" className="fine-print">Tu acceso personal protege los detalles de tu invitación.</p></section>
+    <section className="rsvp"><p className="eyebrow">Confirma tu asistencia</p><h2>Nos encantará<br /><em>celebrar contigo</em></h2><p>Con tu código personal podrás ver tus boletos y confirmar a tus acompañantes.</p><RsvpCodeEntry /></section>
     <footer>Diana &amp; Héctor <span>♥</span> 07 · 02 · 2027</footer>
   </main>;
 }
