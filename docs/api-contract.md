@@ -81,11 +81,19 @@ Authenticated administrator only. Streams a CSV/XLSX export with no access token
 
 ### `POST /v1/admin/guests`
 
-Authenticated administrator only. Creates an invitation, a server-generated opaque access token, and a unique four-digit RSVP code. The response returns the new code once to the authenticated administrator; its hash is retained server-side. Delivery of an access link or code is a separate, explicitly approved mail operation.
+Authenticated administrator only. Creates an invitation, a server-generated opaque access token, and a unique four-digit RSVP code. The response returns the new code once to the authenticated administrator; its hash is retained server-side. The administrative portal turns that code into the personal URL `/?code=1234#confirmar`; it preloads the code but still requires the guest to continue into their token-scoped RSVP screen. Delivery from the portal currently opens the administrator's mail client (`mailto:`); no server sends guest email automatically.
+
+### `POST /v1/admin/guests/{id}/access-code`
+
+Authenticated administrator only. Replaces a lost code with a new unique four-digit code and returns it once. The previous code immediately stops working. This lets the administrator copy a fresh personal link without ever retrieving a stored plain-text code.
 
 ### `PATCH /v1/admin/guests/{id}` and `DELETE /v1/admin/guests/{id}`
 
 Authenticated administrator only. The API validates UUIDs and logs only action, administrator ID, target ID, and outcome.
+
+### Seating administration
+
+`GET`/`POST /v1/admin/seating`, `POST /v1/admin/seating/tables`, `PATCH`/`DELETE /v1/admin/seating/tables/{id}`, and `PATCH /v1/admin/seating/seats/{id}` are administrator-only. Plans, table geometry, and seat assignments are stored independently of the visual canvas. Each guest or companion can occupy at most one seat; public RSVP requests cannot read or modify seating data.
 
 ## Error envelope
 

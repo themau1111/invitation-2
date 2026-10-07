@@ -7,12 +7,17 @@ The first migration is `supabase/migrations/20260911030354_create_invitation_rsv
 - `guests`: one invitation recipient. `access_token` is an opaque UUID used only by the future server API; it is not an incremental or guessable public identifier.
 - `guest_companions`: optional accompanying guests, linked to a primary guest and removed automatically if that guest is removed.
 - `admin_profiles`: the small allow-list of Supabase Auth users allowed to administer the invitation.
+- `seating_plans`: named reception layouts with their virtual canvas dimensions.
+- `seating_tables`: positioned round or rectangular tables within a plan.
+- `seating_seats`: numbered seats; each can reference one primary guest or one companion, but never both. Partial unique indexes prevent assigning the same person twice.
 
 ## Access model
 
 All tables have RLS enabled. `guests` and `guest_companions` intentionally have no browser-access policies: requests must pass through the API, which validates the opaque access token for RSVP or an authenticated administrator for management/export. The server-only Supabase service-role key must never be exposed to the frontend.
 
 `admin_profiles` lets authenticated users read only their own role. Creating or changing administrators remains server-only.
+
+The seating tables also have RLS and no browser policies. The authenticated administrator presents their Supabase access token to the Vercel API, which checks `admin_profiles` before operating on any layout.
 
 `public.submit_rsvp` is a `SECURITY DEFINER` function used only by the API's service role to write a guest and their companions atomically. It locks the matching invitation and verifies all supplied companion IDs belong to it. `EXECUTE` is revoked from `PUBLIC`, `anon`, and `authenticated`; the function is not a browser endpoint.
 
