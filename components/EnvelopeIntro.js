@@ -11,31 +11,27 @@ export default function EnvelopeIntro() {
 
     setOpening(true);
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.setTimeout(() => setVisible(false), reducedMotion ? 0 : 1_250);
+    window.setTimeout(() => setVisible(false), reducedMotion ? 0 : 1_900);
   }
 
   if (!visible) return null;
 
   return <section className={`envelope-intro${opening ? " is-opening" : ""}`} aria-label="Abrir invitación de Diana y Héctor">
     <div className="envelope-intro__glow" aria-hidden="true" />
-    <div className="envelope-scene">
-      <div className="envelope-card" aria-hidden="true">
-        <span>Nos casamos</span>
-        <strong>D <i>♥</i> H</strong>
-        <small>07 · 02 · 2027</small>
-      </div>
+    <div className="envelope-scene envelope-scene--sealed">
+      <p className="envelope-scene__eyebrow">Diana &amp; Héctor</p>
       <div className="envelope" aria-hidden="true">
         <div className="envelope__back" />
-        <div className="envelope__flap" />
-        <div className="envelope__front envelope__front--left" />
-        <div className="envelope__front envelope__front--right" />
-        <div className="envelope__seal">D<i>♥</i>H</div>
+        <div className="envelope__flap envelope__flap--top" />
+        <div className="envelope__flap envelope__flap--left" />
+        <div className="envelope__flap envelope__flap--right" />
+        <div className="envelope__flap envelope__flap--bottom" />
       </div>
-      <p className="envelope-scene__note">Una celebración para recordar</p>
-      <button type="button" className="envelope-open" onClick={openInvitation} disabled={opening}>
-        {opening ? "Abriendo…" : "Abrir invitación"}
-        <span aria-hidden="true">↗</span>
+      <button type="button" className="envelope__seal" onClick={openInvitation} disabled={opening}>
+        <span aria-hidden="true">D<i>♥</i>H</span>
+        <span className="sr-only">{opening ? "Abriendo invitación" : "Abrir invitación de Diana y Héctor"}</span>
       </button>
+      <p className="envelope-scene__note" aria-hidden="true">{opening ? "" : "Toca el sello para abrir"}</p>
     </div>
   </section>;
 }
