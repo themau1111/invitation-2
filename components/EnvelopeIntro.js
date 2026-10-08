@@ -4,7 +4,8 @@ import { useState } from "react";
 
 const assets = {
   bottom: "/images/envelope/bottom-flap.png",
-  side: "/images/envelope/side-flap-left.png",
+  left: "/images/envelope/side-flap-left.png",
+  right: "/images/envelope/side-flap-right.png",
   seal: "/images/envelope/wax-seal.png",
   top: "/images/envelope/top-flap.png",
 };
@@ -37,8 +38,8 @@ export default function EnvelopeIntro() {
       <div className="premium-envelope__inner-back" />
       <InvitationCard />
       <img className="premium-envelope__flap premium-envelope__flap--bottom" src={assets.bottom} alt="" />
-      <img className="premium-envelope__flap premium-envelope__flap--left" src={assets.side} alt="" />
-      <img className="premium-envelope__flap premium-envelope__flap--right" src={assets.side} alt="" />
+      <img className="premium-envelope__flap premium-envelope__flap--left" src={assets.left} alt="" />
+      <img className="premium-envelope__flap premium-envelope__flap--right" src={assets.right} alt="" />
       <img className="premium-envelope__flap premium-envelope__flap--top" src={assets.top} alt="" />
     </div>
     <button type="button" className="premium-envelope__seal" onClick={openInvitation} disabled={opening} aria-label="Abrir invitación de Diana y Héctor">
